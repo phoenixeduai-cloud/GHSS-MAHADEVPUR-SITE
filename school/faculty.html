@@ -1,0 +1,33 @@
+<script>
+const params = new URLSearchParams(window.location.search);
+const stream = params.get("stream");
+
+const faculty = {
+  science: [
+    "Mr. A. Sharma – Physics",
+    "Ms. R. Devi – Chemistry",
+    "Mr. P. Das – Mathematics",
+    "Ms. N. Tanti – Biology"
+  ],
+  arts: [
+    "Mr. T. Singh – History",
+    "Ms. B. Devi – Geography",
+    "Mr. R. Roy – Political Science",
+    "Ms. M. Sharma – Economics"
+  ]
+};
+
+document.getElementById("title").innerText =
+  stream === "science" ? "Science Faculty" : "Humanities Faculty";
+
+const list = faculty[stream];
+const container = document.getElementById("facultyList");
+
+list.forEach((name,i)=>{
+  const div = document.createElement("div");
+  div.className = "card fade-up";
+  div.style.animationDelay = (i * 0.15) + "s";
+  div.innerText = name;
+  container.appendChild(div);
+});
+</script>
